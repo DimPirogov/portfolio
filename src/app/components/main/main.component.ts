@@ -8,6 +8,7 @@ import { MoviesService } from '../../service/movies/movies.service';
 import { LoaderComponent } from '../loader/loader/loader.component';
 import { MoviecardsComponent } from './moviecards/moviecards.component';
 import { SwitchComponent } from '../switch/switch.component';
+import { SlidesComponent } from './slides/slides.component';
 
 @Component({
   selector: 'app-main',
@@ -17,7 +18,8 @@ import { SwitchComponent } from '../switch/switch.component';
     CommonModule,
     LoaderComponent,
     MoviecardsComponent,
-    SwitchComponent
+    SwitchComponent,
+    SlidesComponent
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
