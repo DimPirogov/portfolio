@@ -1,0 +1,60 @@
+<div class="mb-3">
+  <app-switch class="theme-picker"></app-switch>
+  <section>
+    <p class="mt-3" >Dimitri Pirogov<br>
+      <span>this page is build with
+        <i class="fa-brands fa-angular fa-xl"></i> Angular</span>
+    </p>
+    <h1 class="mt-3">Welcome to Dimitri Pirogov page of project examples</h1>
+    <br>
+    <h3>Here you can test to search for a Movie from IMDB, I am using
+      <a
+        class="text-decoration-none"
+        href="//rapidapi.com/"
+        target="_blank"
+      >
+        Rapid API
+      </a>
+      services
+    </h3>
+    <div *ngIf="showError" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+    <label
+      for="searchMovies"
+      class="form-label mt-3"
+    >
+      Type in the name of the movie or an actor:
+    </label>
+    <div class="form-group has-search">
+      <i class="fa-solid fa-magnifying-glass form-control-feedback"></i>
+      <input
+        class="form-control"
+        placeholder="type the movie name"
+        id="searchMovies"
+        type="search"
+        #searchInput
+        [formControl]="searchMovies"
+      />
+    </div>
+    <button
+      class="btn btn-primary mt-1"
+      (click)="searchMoviesByName()"
+    >
+      Search
+    </button>
+    <div *ngIf="showLoader">
+      <p class="mt-3 searchP"> Searching: {{ searchMovies.value }} </p>
+      <app-loader></app-loader>
+    </div>
+    <div class="mb-3 mt-3">
+      <app-moviecards [movieData]="movieData">
+      </app-moviecards>
+    </div>
+  </section>
+  <section class="mt-5">
+    <br><br>
+    <h3 class="mt-3">Screenshots and links to some of mine study projects</h3>
+  </section>
+
+</div>

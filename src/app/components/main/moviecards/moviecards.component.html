@@ -1,0 +1,30 @@
+<div class="cards-container">
+  <div *ngFor="let movie of movieData">
+    <div
+      *ngIf="movie.i.imageUrl"
+      class="card"
+      >
+      <div class="poster">
+        <img
+        [src]="movie.i.imageUrl"
+        [alt]="movie.l"
+        >
+      </div>
+      <div class="details">
+        <h3>{{ movie.l}}</h3>
+        <div class="movierating">
+          Rank: {{ movie.rank}}
+          <!-- <i class="fa-regular fa-star"></i>
+          <i class="fa-regular fa-heart"></i> -->
+        </div>
+        <div class="info">
+          <h4>Info</h4>
+          <p *ngIf="movie.q">{{ movie.q}}</p>
+          <p *ngIf="movie.s">{{ movie.s}}
+          <p *ngIf="movie.y">Year: {{ movie.y }}</p>
+          <p *ngIf="movie.yr">Years: {{ movie.yr }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
