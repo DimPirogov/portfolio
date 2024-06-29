@@ -9,7 +9,8 @@ body {
   background: var(--gradient-light) no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Sans', 'Roboto', sans-serif;
+  font-weight: 900;
   /* height: 100vh; */
   /* overflow: hidden; */
   color: var(--text-color);
@@ -95,25 +96,31 @@ body.light-theme {
   --card-text-color: #000000;
   --input-text: #000000;
 }
-
+.first {
+  font-size: 0.9rem;
+}
+h1 {
+  font-size: 5rem;
+}
 .btn {
   background-color: var(--btn-bg-color);
   color: var(--btn-text-color);
   border-color: var(--btn-border-color);
 }
-
+/* for the mode button */
 .theme-picker {
   position: fixed;
   top: 0px;
   right: 10px;
   z-index: 1000;
 }
+/* -----end of mode button */
 
+/* for the search bar */
 .has-search .form-control {
   padding-left: 2.375rem;
   max-width: 400px;
 }
-
 .has-search .form-control-feedback {
   position: absolute;
   z-index: 2;
@@ -125,7 +132,12 @@ body.light-theme {
   pointer-events: none;
   color: #aaa;
 }
+.has-search button{
+  width: 400px;
+}
+/* -----end of search bar */
 
+/* for the paragraf when search is active */
 .searchP {
   font-size: 3rem;
   /* position: fixed; */
@@ -136,4 +148,59 @@ body.light-theme {
   background: var(--gradient);
   z-index: 1000;
   display: block; /* Ensures the element is displayed */
+}
+/* -----end of paragraf */
+
+/* for the parallax effect */
+.parallax {
+  min-height: 40em;
+  height: 100vh;
+  /* overflow: hidden; */
+  /* position: sticky; */
+  /* top: 0; */
+}
+.images {
+  height:  100vh;
+  /* overflow: hidden; */
+  object-fit: cover;
+}
+.images img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 130%;
+}
+.img1 {
+  z-index: 4;
+  filter: drop-shadow(0 0 4em #ea8827);
+}
+.img2 {
+  z-index: 3;
+}
+.img4 {
+  z-index: 2;
+}
+.img3 {
+  z-index: 1;
+}
+.title {
+  font-size: 6em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  color: var(--text-color);
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
+  text-align: center;
+}
+.container {
+  padding: 1.5em;
+  z-index: 2;
+  position: sticky;
+  top: 0;
+  margin-top: 25%;
 }

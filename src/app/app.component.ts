@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { MainComponent } from './components/main/main.component';
 import { ThemeService } from '../../src/app/service/theme/theme.service';
 import { Theme } from './model/theme/theme';
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import { Theme } from './model/theme/theme';
   imports: [
     RouterOutlet,
     MainComponent,
-    CommonModule
+    CommonModule,
+    HeaderComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
