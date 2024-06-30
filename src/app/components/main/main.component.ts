@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
 
 import { MoviesService } from '../../service/movies/movies.service';
-// import { ThemeService } from '../../service/theme/theme.service';
 import { LoaderComponent } from '../loader/loader/loader.component';
 import { MoviecardsComponent } from './moviecards/moviecards.component';
 import { SwitchComponent } from '../switch/switch.component';
@@ -19,7 +18,7 @@ import { SlidesComponent } from './slides/slides.component';
     LoaderComponent,
     MoviecardsComponent,
     SwitchComponent,
-    SlidesComponent
+    SlidesComponent,
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css',
@@ -38,43 +37,49 @@ export class MainComponent implements OnInit {
 
   constructor(
     private moviesService: MoviesService,
-    // public themeService: ThemeService
   ) {}
 
   ngOnInit() {}
 
-  // toggleTheme(): void {
-  //   this.themeService.toggleTheme();
-  // }
+  ngAfterViewInit() {
+    let title = document.querySelector('.title');
+    window.addEventListener('scroll', () => {
+      let scrollPosition = window.scrollY;
+      let newTop = 1 + (scrollPosition * 0.1);
+      // the lower number the higher the title starts
+      (title as HTMLElement).style.top = `calc(${Math.min(newTop, 50)}% + 40%)`;
+      } // 50 made the title stop at the bottom of image
+    )
+  }
 
   searchMoviesByName() {
-    if(this.searchMovies.value === '') {
-      this.showError = true;
-      this.errorMessage = 'Please enter a NAME to search';
-      setTimeout(() => {
-        this.showError = false;
-      }, 5000);
-      this.searchInput.nativeElement.focus();
-      return;
-    }
-    else if(this.oldSearch === this.searchMovies.value) {
-      return;
-    }
-    this.showLoader = true;
-    this.moviesService
-      .getMoviesByName(this.searchMovies.value || '')
-      .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: (res: any) => {
-          this.movieData = res.d;
-          if (this.movieData.length != 0) {
-            console.log(this.movieData);
-          }
-          this.showLoader = false;
-          this.oldSearch = this.searchMovies.value || '';
-        },
-        error: (err) => this.handleError(err)
-      })
+  if(this.searchMovies.value === '') {
+    this.showError = true;
+    this.errorMessage = 'Please enter a NAME to search';
+    setTimeout(() => {
+      this.showError = false;
+    }, 5000);
+    this.searchInput.nativeElement.focus();
+    return;
+  }
+  else if(this.oldSearch === this.searchMovies.value) {
+    return;
+  }
+  this.showLoader = true;
+  this.moviesService
+    .getMoviesByName(this.searchMovies.value || '')
+    .pipe(takeUntil(this.destroy$))
+    .subscribe({
+      next: (res: any) => {
+        this.movieData = res.d;
+        if (this.movieData.length != 0) {
+          console.log(this.movieData);
+        }
+        this.showLoader = false;
+        this.oldSearch = this.searchMovies.value || '';
+      },
+      error: (err) => this.handleError(err)
+    })
   }
 
   handleError(err: any): void {

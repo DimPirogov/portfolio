@@ -1,17 +1,14 @@
-<header class="parallax">
+<header class="mb-3 parallax">
   <div class="images">
-    <img src="assets/image1trans.png" class="img1" >
-    <img src="assets/image2trans.png" class="img2" >
-    <img src="assets/image3trans.png" class="img3" >
-    <img src="assets/image4trans.png" class="img4" >
+    <img src="assets/shoes.jpg" class="img1" >
+    <h1 class="title">Welcome to Dimitri Pirogov page of project examples</h1>
   </div>
-  <h1 class="title">Welcome to Dimitri Pirogov page of project examples</h1>
 </header>
 <app-switch class="theme-picker"></app-switch>
 <div class="container">
   <section>
     <p class="mt-3 first" >Dimitri Pirogov<br>
-      <span>this page is build with
+      <span>This page is build with
         <i class="fa-brands fa-angular fa-xl"></i> Angular</span>
       ,using <i class="fa-brands fa-bootstrap fa-xl"></i> Bootstrap
       ,<i class="fa-brands fa-font-awesome fa-xl"></i> Font Awesome.
@@ -36,10 +33,10 @@
     >
       Type in the name of the movie or an actor:
     </label>
-    <div class="form-group has-search">
+    <div class="form-group has-search row">
       <i class="fa-solid fa-magnifying-glass form-control-feedback"></i>
       <input
-        class="form-control"
+        class="form-control me-2"
         placeholder="type the movie name"
         id="searchMovies"
         type="search"
@@ -47,7 +44,7 @@
         [formControl]="searchMovies"
       />
       <button
-        class="btn btn-primary mt-1"
+        class="btn btn-primary col-auto"
         (click)="searchMoviesByName()"
       >
         Search
@@ -57,14 +54,14 @@
       <p class="mt-3 searchP"> Searching: {{ searchMovies.value }} </p>
       <app-loader></app-loader>
     </div>
-    <div class="mb-3 mt-3">
+    <div class="mb-3 mt-5">
       <app-moviecards [movieData]="movieData">
       </app-moviecards>
     </div>
   </section>
   <section class="mt-5">
     <br><br>
-    <h3 class="mt-3">Screenshots and links to some of mine study projects</h3>
+    <h3 class="mt-3" style="text-align: center;">Screenshots and links to some of mine study projects</h3>
     <app-slides></app-slides>
   </section>
 

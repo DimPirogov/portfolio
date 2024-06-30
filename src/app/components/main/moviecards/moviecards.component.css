@@ -1,18 +1,13 @@
 *{
   font-family: 'PT Sans', sans-serif;
 }
-
 .cards-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   gap: 1rem;
-  /* padding: 1rem; */
-
 }
-
 .card {
-  /* position: relative; */
   flex: 1;
   margin: auto;
   min-width: 250px;
@@ -23,14 +18,12 @@
   border-radius: 10px;
   box-shadow: 0 15px 35px var(--text-color);
   overflow: hidden;
+  border: 0;
 }
-
 .card .poster {
   position: relative;
   height: 100%;
-  /* overflow: hidden; */
 }
-
 .card .poster::before {
   content: '';
   position: absolute;
@@ -41,20 +34,13 @@
   transition: 0.5s;
   z-index: 1;
 }
-
 .card:hover .poster::before {
   bottom: 0px;
 }
-
 .card .poster img {
   width: 100%;
   transition: 0.5s;
 }
-
-/* .card:hover .poster::before {
-  transform: translateY(-10px);
-} */
-
 .card .details {
   position: absolute;
   bottom: -337px;
@@ -64,75 +50,60 @@
   box-sizing: border-box;
   z-index: 2;
   transition: 0.5s;
-
 }
-
 .card:hover .details {
   bottom: 20px;
 }
-
 .card .details .logo{
   max-width: 60%;
 }
-
 .card .details .movierating {
   color: var(--rating);
   font-weight: 900;
 }
-
 .card .details .movierating i {
   font-size: 1.5rem;
 }
-
 .card .details h3 {
   color: var(--card-text-color);
   font-size: 1.18rem;
   padding: 0.5rem 0;
 }
-
 .card .details .tags {
   color: var(--card-text-color);
   padding: 0.2rem 0;
   margin-top: 8px;
 }
-
 .card .details .tags .span {
   padding: 1rem;
   background: var(--card-text-color);
   border-radius: 5px;
   margin-top: 5px;
 }
-
 .card .details .info {
   color: var(--card-text-color);
 }
-
 .card .details .info h4{
   color: var(--card-text-color);
   font-size: 1.18rem;
   margin-top: 0.3rem;
 }
-
 .card .details .cast h4 {
   color: var(--card-text-color);
 }
-
 .card .details .cast p {
   /* font-size: .8rem; */
   color: var(--card-text-color);
   margin: 2px 0;
 }
-
 .card .details .cast {
   position: relative;
 }
-
 .card .details .cast ul{
   position: relative;
   display: flex;
   gap: 0,625rem;
 }
-
 .card .details .cast ul li{
   list-style: none;
   width: 2,1875rem;
@@ -141,7 +112,6 @@
   border-radius: 50%;
   border: 2px solid var(--card-text-color);
 }
-
 .card .details .cast ul li img {
   width: 100%;
 }

@@ -1,8 +1,9 @@
 
 :root {
-  --gradient-light: linear-gradient(130deg, rgba(124, 207, 226, .5 ) 0%, rgba(72, 58, 160, .8) 100%);
-  /* --gradient-dark: linear-gradient(130deg, rgba(131, 48, 29, .8 ) 0%, rgba(183, 197, 95, .5) 100%); */
+  --gradient-light: linear-gradient(130deg, rgba(231, 230, 216, 0.5) 0%, rgba(46, 25, 179, 0.8) 100%);
+  /* --gradient-light: linear-gradient(130deg, rgba(124, 207, 226, .5 ) 0%, rgba(72, 58, 160, .8) 100%); */
   --gradient-dark: linear-gradient(130deg, rgba(60, 20, 20, .9) 0%, rgba(90, 95, 60, .85) 100%);
+  /* --gradient-dark: linear-gradient(130deg, rgba(60, 20, 20, .9) 0%, rgba(90, 95, 60, .85) 100%); */
 }
 
 body {
@@ -98,14 +99,27 @@ body.light-theme {
 }
 .first {
   font-size: 0.9rem;
+  text-align: center;
 }
 h1 {
   font-size: 5rem;
 }
+section h3 a {
+  color: var(--text-color);
+
+}
 .btn {
-  background-color: var(--btn-bg-color);
+  /* background-color: var(--btn-bg-color); */
+  background-color: var(--rating);
   color: var(--btn-text-color);
-  border-color: var(--btn-border-color);
+  /* border-color: var(--btn-border-color); */
+  border-color: var(--rating);
+  font-weight: 900;
+}
+.btn:hover {
+  background-color: var(--btn-proper-color);
+  border-color: var(--btn-proper-color);
+  color: black;
 }
 /* for the mode button */
 .theme-picker {
@@ -121,6 +135,7 @@ h1 {
   padding-left: 2.375rem;
   max-width: 400px;
 }
+/* the magnifying glass */
 .has-search .form-control-feedback {
   position: absolute;
   z-index: 2;
@@ -132,15 +147,11 @@ h1 {
   pointer-events: none;
   color: #aaa;
 }
-.has-search button{
-  width: 400px;
-}
 /* -----end of search bar */
 
 /* for the paragraf when search is active */
 .searchP {
   font-size: 3rem;
-  /* position: fixed; */
   top: 0;
   left: 0;
   width: 100%;
@@ -153,37 +164,31 @@ h1 {
 
 /* for the parallax effect */
 .parallax {
-  min-height: 40em;
-  height: 100vh;
+  /* min-height: 40em; */
+  /* height: 100vh; */
   /* overflow: hidden; */
   /* position: sticky; */
-  /* top: 0; */
+  top: 0;
 }
 .images {
-  height:  100vh;
-  /* overflow: hidden; */
-  object-fit: cover;
+  position: relative;
+  /* height:  100%; */
+  /* width: auto; */
+  overflow: hidden;
+  /* object-fit: cover; */
 }
 .images img {
-  position: absolute;
-  left: 0;
+  /* position: absolute; */
+  /* left: 0; */
   width: 100%;
-  height: 130%;
+  height: auto;
 }
 .img1 {
   z-index: 4;
   filter: drop-shadow(0 0 4em #ea8827);
 }
-.img2 {
-  z-index: 3;
-}
-.img4 {
-  z-index: 2;
-}
-.img3 {
-  z-index: 1;
-}
 .title {
+  font-family: 'Kanit', sans-serif;
   font-size: 6em;
   position: absolute;
   top: 50%;
@@ -191,16 +196,27 @@ h1 {
   width: 80%;
   text-align: center;
   transform: translate(-50%, -50%);
-  z-index: 3;
-  color: var(--text-color);
+  z-index: 5;
+  color: #fff;
   text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
   text-transform: uppercase;
   text-align: center;
 }
+/* ---end of parallax --- */
 .container {
   padding: 1.5em;
-  z-index: 2;
-  position: sticky;
+  z-index: 5;
+  /* position: sticky; */
   top: 0;
-  margin-top: 25%;
+  /* margin-top: 5em; */
+}
+@media screen and (max-width: 1200px) {
+  .title {
+    font-size: 4em;
+  }
+}
+@media screen and (max-width: 800px) {
+  .title {
+    font-size: 2em;
+  }
 }
