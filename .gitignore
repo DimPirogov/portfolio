@@ -13,7 +13,7 @@ yarn-error.log
 
 # Project Files
 .env
-/src/environments/**
+/environments/*
 
 
 # IDEs and editors
