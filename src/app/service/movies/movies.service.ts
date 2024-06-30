@@ -9,8 +9,16 @@ import { environment } from '../../../environments/environment.development';
 export class MoviesService {
   constructor(private http: HttpClient) {}
 
+  // getMoviesByName(search: string) {
+  //   const fullUrl = `${environment.serverUrl}/api/movies`;
+  //   return this.http.get(fullUrl, { params: { q: search } });
+  // }
+
   getMoviesByName(search: string) {
-    const fullUrl = `${environment.serverUrl}/api/movies`;
-    return this.http.get(fullUrl, { params: { q: search } });
+    const fullUrl = `${environment.serverUrl}/auto-complete`;
+    return this.http.get(fullUrl, { headers: {
+      'X-RapidAPI-Key': environment.RAPIDAPI_KEY as string,
+      'X-RapidAPI-Host': environment.rapidHostUrl as string,
+    }, params: { q: search } } );
   }
 }
