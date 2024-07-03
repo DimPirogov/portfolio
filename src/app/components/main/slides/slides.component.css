@@ -35,3 +35,51 @@
   height: 100%;
   object-fit: cover;
 }
+@media screen and (max-width: 1400px) {
+  .banner .slider .item {
+    transform:
+      rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+      translateZ(300px);
+  }
+}
+@media screen and (max-width: 1000px) {
+  .banner {
+    height: auto;
+    overflow: visible;
+    justify-content: center;
+    align-items: center;
+    left: auto;
+  }
+  .banner .slider {
+    /* position: static; */
+    animation: none; /* Stop the sliding animation */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    left: calc(50% - 150px);
+  }
+  .banner .slider .item {
+    position: static; /* Change positioning to static */
+    transform: none; /* Remove transformations */
+    width: auto; /* Adjust width as needed */
+    height: auto; /* Adjust height as needed */
+    margin: 20px; /* Center the item if needed */
+  }
+  .banner .slider .item img {
+    width: 100%; /* Adjust width as needed */
+    height: auto; /* Adjust height to maintain aspect ratio */
+    object-fit: cover; /* Adjust object-fit as needed */
+  }
+  img:hover {
+    transform: scale(3);
+    transition: transform 0.5s;
+  }
+}
+@media screen and (max-width: 800px) {
+  img:hover {
+    transform: scale(1.5);
+    transition: transform 0.5s;
+  }
+}

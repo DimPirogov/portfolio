@@ -34,7 +34,7 @@ body.light-theme {
   --gradient: var(--gradient-dark);
   --text-color: #fdfeff;
   --rating: rgba(124, 207, 226, .5 );
-  --btn-proper-color: rgba(60, 20, 20, .9);
+  --btn-proper-color: rgba(60, 20, 20, .8);
   --border-color: #3e4451;
   --header-bg-color: #21252b;
   --even-row-bg-color: #21252b;
@@ -68,8 +68,8 @@ body.light-theme {
   --bg-color: #ffffff;
   --gradient: var(--gradient-light);
   --text-color: #333333;
-  --rating: rgba(60, 20, 20, .9);
-  --btn-proper-color: rgba(124, 207, 226, .5 );
+  --rating: rgba(60, 20, 20, .6);
+  --btn-proper-color: rgba(124, 207, 226, .7 );
   --border-color: #dddddd;
   --header-bg-color: #f2f2f2;
   --even-row-bg-color: #f2f2f2;
@@ -97,16 +97,17 @@ body.light-theme {
   --card-text-color: #000000;
   --input-text: #000000;
 }
+/* site story */
 .first {
   font-size: 0.9rem;
   text-align: center;
 }
+/* --end-- */
 h1 {
   font-size: 5rem;
 }
 section h3 a {
   color: var(--text-color);
-
 }
 .btn {
   /* background-color: var(--btn-bg-color); */
@@ -131,6 +132,7 @@ section h3 a {
 /* -----end of mode button */
 
 /* for the search bar */
+
 .has-search .form-control {
   padding-left: 2.375rem;
   max-width: 400px;
@@ -185,13 +187,13 @@ section h3 a {
 }
 .img1 {
   z-index: 4;
-  filter: drop-shadow(0 0 4em #ea8827);
+  /* filter: drop-shadow(0 0 4em #ea8827); */
 }
 .title {
   font-family: 'Kanit', sans-serif;
   font-size: 6em;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   width: 80%;
   text-align: center;
@@ -200,7 +202,6 @@ section h3 a {
   color: #fff;
   text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
   text-transform: uppercase;
-  text-align: center;
 }
 /* ---end of parallax --- */
 .container {
@@ -210,12 +211,24 @@ section h3 a {
   top: 0;
   /* margin-top: 5em; */
 }
-@media screen and (max-width: 1200px) {
+footer {
+  z-index: -1;
+  position: relative;
+  /* clear: both; */
+  background: var(--rating);
+  margin-bottom: 0;
+}
+@media screen and (max-width: 1400px) {
   .title {
     font-size: 4em;
   }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
+  footer {
+    margin-top: calc(1371px);
+  }
+}
+@media screen and (max-width: 900px) {
   .title {
     font-size: 2em;
   }

@@ -66,8 +66,7 @@ export class MainComponent implements OnInit {
     return;
   }
   this.showLoader = true;
-  this.moviesService
-    .getMoviesByName(this.searchMovies.value || '')
+  this.moviesService.getMoviesByName(this.searchMovies.value || '')
     .pipe(takeUntil(this.destroy$))
     .subscribe({
       next: (res: any) => {

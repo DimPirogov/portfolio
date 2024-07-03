@@ -8,7 +8,7 @@
 <div class="container">
   <section>
     <p class="mt-3 first" >Dimitri Pirogov<br>
-      <span>This page is build with
+      <span>This page is built with
         <i class="fa-brands fa-angular fa-xl"></i> Angular</span>
       ,using <i class="fa-brands fa-bootstrap fa-xl"></i> Bootstrap
       ,<i class="fa-brands fa-font-awesome fa-xl"></i> Font Awesome.
@@ -44,7 +44,7 @@
         [formControl]="searchMovies"
       />
       <button
-        class="btn btn-primary col-auto"
+        class="btn btn-primary col-auto search"
         (click)="searchMoviesByName()"
       >
         Search
@@ -64,5 +64,27 @@
     <h3 class="mt-3" style="text-align: center;">Screenshots and links to some of mine study projects</h3>
     <app-slides></app-slides>
   </section>
-
 </div>
+<footer class="text-center text-lg-start text-muted" >
+  <section
+    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+  >
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected with me on social networks:</span>
+    </div>
+    <div>
+      <a href="www.linkedin.com/in/dimitri-pirogov" class="me-4 text-reset">
+        <i class="fa-brands fa-linkedin fa-xl"></i></a>
+      <a href="mailto:dimpirogovp@hotmail.com" class="me-4 text-reset">
+        <i class="fa-solid fa-envelope fa-xl"></i>
+      </a>
+      <a href="https://github.com/DimPirogov" class="me-4 text-reset">
+        <i class="fa-brands fa-github fa-xl"></i>
+      </a>
+    </div>
+  </section>
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2024 Copyright:
+    <a class="text-reset fw-bold">Dimitri Pirogov</a>
+  </div>
+</footer>
