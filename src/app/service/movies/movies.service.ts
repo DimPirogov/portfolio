@@ -44,9 +44,9 @@ export class MoviesService {
   //   console.log('express');
   //   return this.http.get(fullUrl, { params: { q: search } });
   // }
-  
+
   getMoviesByName(search: string) {
-    const fullUrl = `https://${environment.rapidHostUrl}/auto-complete`;
+    const fullUrl = `https://${environment.RAPIDAPI_HOST}/auto-complete`;
     return this.http.get(fullUrl, { headers: {
       'X-RapidAPI-Key': process.env['RAPIDAPI_KEY'] as string,
       'X-RapidAPI-Host': process.env['RAPIDAPI_HOST'] as string,
