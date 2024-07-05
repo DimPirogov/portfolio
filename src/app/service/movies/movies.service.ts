@@ -19,19 +19,25 @@ export class MoviesService {
         catchError(() => of(false)),
       );
   }
-
   getMoviesByName(search: string): Observable<any> {
-    return this.checkServerAvailability()
-      .pipe(
-        switchMap(isServerAvailable => {
-          if (isServerAvailable) {
-              return this.getMoviesByNameByExpress(search);
-          } else {
-            return this.getMoviesByNameFromRapid(search);
-          }
-        }),
-        catchError(() => of([])),
-      )
+    if(environment.production) {
+      return this.getMoviesByNameFromRapid(search)
+        .pipe(
+          catchError(() => of([])),
+        );
+      } else {
+        return this.checkServerAvailability()
+          .pipe(
+            switchMap(isServerAvailable => {
+              if (isServerAvailable) {
+                return this.getMoviesByNameByExpress(search);
+              } else {
+                return this.getMoviesByNameFromRapid(search);
+              }
+            }),
+            catchError(() => of([])),
+          );
+      };
   }
 
   getMoviesByNameByExpress(search: string) {
@@ -42,7 +48,6 @@ export class MoviesService {
 
   getMoviesByNameFromRapid(search: string) {
     const fullUrl = `https://${environment.rapidHostUrl}/auto-complete`;
-    console.log('rapidDirect');
     return this.http.get(fullUrl, { headers: {
       'X-RapidAPI-Key': environment.RAPIDAPI_KEY as string,
       'X-RapidAPI-Host': environment.rapidHostUrl as string,
