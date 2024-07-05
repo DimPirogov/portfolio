@@ -48,10 +48,10 @@ export class MoviesService {
   getMoviesByName(search: string) {
     const fullUrl = `https://${environment.RAPIDAPI_HOST}/auto-complete`;
     return this.http.get(fullUrl, { headers: {
-      'X-RapidAPI-Key': process.env['RAPIDAPI_KEY'] as string,
-      'X-RapidAPI-Host': process.env['RAPIDAPI_HOST'] as string,
-      // 'X-RapidAPI-Key': environment.RAPIDAPI_KEY as string,
-      // 'X-RapidAPI-Host': environment.rapidHostUrl as string,
+      // 'X-RapidAPI-Key': process.env['RAPIDAPI_KEY'] as string,
+      // 'X-RapidAPI-Host': process.env['RAPIDAPI_HOST'] as string,
+      'X-RapidAPI-Key': environment.RAPIDAPI_KEY as string,
+      'X-RapidAPI-Host': environment.RAPIDAPI_HOST as string,
     }, params: { q: search } } );
   }
 }
