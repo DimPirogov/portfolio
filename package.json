@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start:backend": "nodemon index.js",
-    "start": "ng serve",
+    "start": "node -r dotenv/config mynode.js && ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

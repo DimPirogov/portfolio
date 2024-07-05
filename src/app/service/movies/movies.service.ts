@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map, switchMap } from 'rxjs/operators';
 import { of, Observable } from 'rxjs';
 
-import { environment } from '../../../environments/environment';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable({
   providedIn: 'root',
@@ -44,6 +44,7 @@ export class MoviesService {
   //   console.log('express');
   //   return this.http.get(fullUrl, { params: { q: search } });
   // }
+  
   getMoviesByName(search: string) {
     const fullUrl = `https://${environment.rapidHostUrl}/auto-complete`;
     return this.http.get(fullUrl, { headers: {
