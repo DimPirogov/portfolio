@@ -11,42 +11,40 @@ import { environment } from '../../../environments/environment.development';
 export class MoviesService {
   constructor(private http: HttpClient) {}
 
-  private checkServerAvailability(): Observable<boolean> {
-    const healthCheckUrl = `${environment.serverUrl}/health`;
-    return this.http.get<{status: string}>(healthCheckUrl)
-      .pipe(
-        map(response => response.status === 'Up and Running' ? true : false),
-        catchError(() => of(false)),
-      );
-  }
-  getMoviesByName(search: string): Observable<any> {
-    if(environment.production) {
-      return this.getMoviesByNameFromRapid(search)
-        .pipe(
-          catchError(() => of([])),
-        );
-      } else {
-        return this.checkServerAvailability()
-          .pipe(
-            switchMap(isServerAvailable => {
-              if (isServerAvailable) {
-                return this.getMoviesByNameByExpress(search);
-              } else {
-                return this.getMoviesByNameFromRapid(search);
-              }
-            }),
-            catchError(() => of([])),
-          );
-      };
-  }
-
-  getMoviesByNameByExpress(search: string) {
-    const fullUrl = `${environment.serverUrl}/api/movies`;
-    console.log('express');
-    return this.http.get(fullUrl, { params: { q: search } });
-  }
-
-  getMoviesByNameFromRapid(search: string) {
+  // private checkServerAvailability(): Observable<boolean> {
+  //   const healthCheckUrl = `${environment.serverUrl}/health`;
+  //   return this.http.get<{status: string}>(healthCheckUrl)
+  //     .pipe(
+  //       map(response => response.status === 'Up and Running' ? true : false),
+  //       catchError(() => of(false)),
+  //     );
+  // }
+  // getMoviesByName(search: string): Observable<any> {
+  //   if(environment.production) {
+  //     return this.getMoviesByNameFromRapid(search)
+  //       .pipe(
+  //         catchError(() => of([])),
+  //       );
+  //     } else {
+  //       return this.checkServerAvailability()
+  //         .pipe(
+  //           switchMap(isServerAvailable => {
+  //             if (isServerAvailable) {
+  //               return this.getMoviesByNameByExpress(search);
+  //             } else {
+  //               return this.getMoviesByNameFromRapid(search);
+  //             }
+  //           }),
+  //           catchError(() => of([])),
+  //         );
+  //     };
+  // }
+  // getMoviesByNameByExpress(search: string) {
+  //   const fullUrl = `${environment.serverUrl}/api/movies`;
+  //   console.log('express');
+  //   return this.http.get(fullUrl, { params: { q: search } });
+  // }
+  getMoviesByName(search: string) {
     const fullUrl = `https://${environment.rapidHostUrl}/auto-complete`;
     return this.http.get(fullUrl, { headers: {
       'X-RapidAPI-Key': environment.RAPIDAPI_KEY as string,
