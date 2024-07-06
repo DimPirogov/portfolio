@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Subject, takeUntil } from 'rxjs';
@@ -43,12 +43,14 @@ export class MainComponent implements OnInit {
 
   ngAfterViewInit() {
     let title = document.querySelector('.title');
+    // let image = document.querySelector('.images');
     window.addEventListener('scroll', () => {
+      // let scrollPositionBottomImage = (image as HTMLElement)
+      //   .getBoundingClientRect().bottom;
       let scrollPosition = window.scrollY;
-      let newTop = 1 + (scrollPosition * 0.1);
-      // the lower number the higher the title starts
-      (title as HTMLElement).style.top = `calc(${Math.min(newTop, 50)}% + 40%)`;
-      } // 50 made the title stop at the bottom of image
+      let newTop = 1 + (scrollPosition * 0.1); // approx 40% top of parent
+      (title as HTMLElement).style.top = `calc(${Math.min(newTop, 40)}% + 40%)`;
+      } // 80% in total as max to move downwards and stop
     )
   }
 

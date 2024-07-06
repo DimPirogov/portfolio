@@ -1,6 +1,7 @@
-import { Movie } from './../../../model/movie/movie';
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { Movie } from './../../../model/movie/movie';
 
 @Component({
   selector: 'app-moviecards',

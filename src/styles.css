@@ -1,11 +1,8 @@
 
 :root {
   --gradient-light: linear-gradient(130deg, rgba(231, 230, 216, 0.5) 0%, rgba(46, 25, 179, 0.8) 100%);
-  /* --gradient-light: linear-gradient(130deg, rgba(124, 207, 226, .5 ) 0%, rgba(72, 58, 160, .8) 100%); */
   --gradient-dark: linear-gradient(130deg, rgba(60, 20, 20, .9) 0%, rgba(90, 95, 60, .85) 100%);
-  /* --gradient-dark: linear-gradient(130deg, rgba(60, 20, 20, .9) 0%, rgba(90, 95, 60, .85) 100%); */
 }
-
 body {
   background: var(--gradient-light) no-repeat;
   background-size: cover;
@@ -16,19 +13,16 @@ body {
   /* overflow: hidden; */
   color: var(--text-color);
 }
-
 body.dark-theme {
   background: var(--gradient-dark) no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
-
 body.light-theme {
   background: var(--gradient-light) no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
-
 .dark-theme {
   --bg-color: #282c34;
   --gradient: var(--gradient-dark);
@@ -174,33 +168,28 @@ section h3 a {
 }
 .images {
   position: relative;
-  /* height:  100%; */
-  /* width: auto; */
   overflow: hidden;
-  /* object-fit: cover; */
+  object-fit: cover;
 }
 .images img {
-  /* position: absolute; */
-  /* left: 0; */
   width: 100%;
   height: auto;
 }
 .img1 {
   z-index: 4;
-  /* filter: drop-shadow(0 0 4em #ea8827); */
 }
 .title {
   font-family: 'Kanit', sans-serif;
   font-size: 6em;
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
   width: 80%;
   text-align: center;
   transform: translate(-50%, -50%);
   z-index: 5;
   color: #fff;
-  text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+  text-shadow: 5px 5px 10px rgba(109, 102, 102, 0.7);
   text-transform: uppercase;
 }
 /* ---end of parallax --- */

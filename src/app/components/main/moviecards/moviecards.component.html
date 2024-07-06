@@ -1,7 +1,7 @@
 <div class="cards-container">
   <div *ngFor="let movie of movieData">
     <div
-      *ngIf="movie.i.imageUrl"
+      *ngIf="movie.i?.imageUrl"
       class="card"
       >
       <div class="poster">
