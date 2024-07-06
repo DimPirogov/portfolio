@@ -6,7 +6,7 @@ const dotenv = require('dotenv').config({path: 'src/.env'}); ;
 
 const envFile = `export const environment = {
     RAPIDAPI_KEY: '${process.env.RAPIDAPI_KEY}',
-    RAPIDAPI_HOST: '${process.env.RAPIDAPI_HOST}',
+    rapidHostUrl: '${process.env.rapidHostUrl}',
 };
 `;
 const targetPath = path.join(__dirname, './src/environments/environment.development.ts');
