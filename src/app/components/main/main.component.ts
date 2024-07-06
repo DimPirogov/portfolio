@@ -73,9 +73,6 @@ export class MainComponent implements OnInit {
     .subscribe({
       next: (res: any) => {
         this.movieData = res.d;
-        if (this.movieData.length != 0) {
-          console.log(this.movieData);
-        }
         this.showLoader = false;
         this.oldSearch = this.searchMovies.value || '';
       },
